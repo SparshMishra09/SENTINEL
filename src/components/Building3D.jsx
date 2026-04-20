@@ -11,7 +11,6 @@ import {
   Float,
   Billboard,
   Trail,
-  Outline,
   Grid
 } from '@react-three/drei';
 import * as THREE from 'three';
@@ -87,12 +86,15 @@ function HolographicFloor({ position, size, color, isActive, opacity = 0.15 }) {
       </mesh>
 
       {/* Edge outline */}
-      <Outline 
-        color={isActive ? '#FF6D00' : color} 
-        opacity={isActive ? 0.9 : 0.4}
-        lineWidth={isActive ? 3 : 1.5}
-        transparent
-      />
+      <lineSegments>
+        <edgesGeometry args={[new THREE.BoxGeometry(w + 0.05, h + 0.05, d + 0.05)]} />
+        <lineBasicMaterial 
+          color={isActive ? '#FF6D00' : color} 
+          transparent 
+          opacity={isActive ? 0.9 : 0.4}
+          linewidth={isActive ? 3 : 1.5}
+        />
+      </lineSegments>
 
       {/* Active zone particles */}
       {isActive && (
@@ -205,8 +207,12 @@ function HazardBeacon({ position, type }) {
             emissiveIntensity={3}
             toneMapped={false}
           />
-          <Outline color="#FFFFFF" opacity={0.8} lineWidth={2} />
         </Sphere>
+        {/* Outer glow ring */}
+        <mesh rotation={[Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
+          <torusGeometry args={[1.2, 0.08, 16, 32]} />
+          <meshBasicMaterial color="#FFFFFF" transparent opacity={0.8} />
+        </mesh>
       </Float>
 
       {/* Rotating warning ring */}
