@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { db } from "../firebase";
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 
 /**
  * ZoneClearButton — Staff component to mark evacuation zone as clear
@@ -15,11 +15,11 @@ export default function ZoneClearButton({ staffId, zone }) {
     
     setClearing(true);
     try {
-      await updateDoc(doc(db, "staff", staffId), {
+      await setDoc(doc(db, "staff", staffId), {
         zone_cleared: true,
         zone_cleared_at: new Date().toISOString(),
         zone_assigned: zone
-      });
+      }, { merge: true });
       alert(`✅ Zone ${zone} marked as clear.`);
     } catch (error) {
       console.error("Failed to mark zone clear:", error);

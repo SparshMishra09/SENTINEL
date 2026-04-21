@@ -20,73 +20,14 @@ import { Play, Loader2 } from "lucide-react";
 // ─── Demo Script Configuration ────────────────────────────────────────────────
 // Each event is delayed by specified milliseconds from the start
 const DEMO_SCRIPT = [
-  {
-    delay: 0,
-    label: "🔥 FIRE detected in Room 412",
-    event: {
-      event_type: "FIRE",
-      location: { floor: 4, zone: "East Wing", room: "412" },
-      confidence: 0.95,
-      source_type: "IOT_SENSOR",
-      status: "ACTIVE"
-    }
-  },
-  {
-    delay: 5000, // +5 seconds
-    label: "💨 SMOKE detected in Room 408",
-    event: {
-      event_type: "SMOKE",
-      location: { floor: 4, zone: "East Wing", room: "408" },
-      confidence: 0.88,
-      source_type: "IOT_SENSOR",
-      status: "ACTIVE"
-    }
-  },
-  {
-    delay: 15000, // +10 seconds
-    label: "🆘 Guest TRAPPED in Room 412",
-    event: {
-      event_type: "TRAPPED",
-      location: { floor: 4, zone: "East Wing", room: "412" },
-      confidence: 0.80,
-      source_type: "VOICE_DIALOGFLOW",
-      status: "ACTIVE"
-    }
-  },
-  {
-    delay: 30000, // +15 seconds
-    label: "🏥 MEDICAL emergency on Floor 3",
-    event: {
-      event_type: "MEDICAL",
-      location: { floor: 3, zone: "West Wing", room: "301" },
-      confidence: 0.75,
-      source_type: "STAFF_APP",
-      status: "ACTIVE"
-    }
-  },
-  {
-    delay: 45000, // +15 seconds
-    label: "😱 PANIC reported in Floor 5 East Wing",
-    event: {
-      event_type: "PANIC",
-      location: { floor: 5, zone: "East Wing", room: "512" },
-      confidence: 0.70,
-      source_type: "VOICE_DIALOGFLOW",
-      status: "ACTIVE"
-    }
-  },
-  {
-    delay: 60000, // +15 seconds
-    label: "🔥 Secondary FIRE on Floor 6",
-    event: {
-      event_type: "FIRE",
-      location: { floor: 6, zone: "West Wing", room: "608" },
-      confidence: 0.82,
-      source_type: "IOT_SENSOR",
-      status: "ACTIVE"
-    }
-  }
+  { delay: 0,     label: "🔥 FIRE in MT Floor 4 East Hall",         event: { event_type: "FIRE",    location: { floor: "MT-4",  zone: "EastHall", room: "412",     nodeId: "MT-4-EastHall"  }, confidence: 0.95, source_type: "IOT_SENSOR",       status: "ACTIVE" } },
+  { delay: 6000,  label: "💨 SMOKE in MT Floor 4 West Hall",        event: { event_type: "SMOKE",   location: { floor: "MT-4",  zone: "WestHall", room: "408",     nodeId: "MT-4-WestHall"  }, confidence: 0.88, source_type: "IOT_SENSOR",       status: "ACTIVE" } },
+  { delay: 12000, label: "🆘 Patient TRAPPED in ICU Floor 2",        event: { event_type: "TRAPPED", location: { floor: "ICU-2", zone: "Central",  room: "ICU-201", nodeId: "ICU-2-Central"  }, confidence: 0.80, source_type: "VOICE_DIALOGFLOW", status: "ACTIVE" } },
+  { delay: 20000, label: "🏥 MEDICAL emergency in MT Floor 3 Ward A", event: { event_type: "MEDICAL",  location: { floor: "MT-3",  zone: "WardA",    room: "301",     nodeId: "MT-3-WardA"     }, confidence: 0.75, source_type: "STAFF_APP",       status: "ACTIVE" } },
+  { delay: 30000, label: "😱 PANIC in MT Floor 2 East Hall",         event: { event_type: "PANIC",   location: { floor: "MT-2",  zone: "EastHall", room: "212",     nodeId: "MT-2-EastHall"  }, confidence: 0.70, source_type: "VOICE_DIALOGFLOW", status: "ACTIVE" } },
+  { delay: 40000, label: "🔥 Secondary FIRE in ICU Floor 3 Neuro",   event: { event_type: "FIRE",    location: { floor: "ICU-3", zone: "Neuro",    room: "ICU-301", nodeId: "ICU-3-Neuro"    }, confidence: 0.82, source_type: "IOT_SENSOR",       status: "ACTIVE" } },
 ];
+
 
 // ─── Helper Functions ─────────────────────────────────────────────────────────
 

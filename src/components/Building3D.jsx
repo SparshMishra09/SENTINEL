@@ -435,7 +435,7 @@ function OPDWing({ activeKeys }) {
  *   activeIncidents  – array of Firestore incident objects (status=ACTIVE)
  *   evacuationRoute  – ordered array of graph node IDs representing the Dijkstra path
  */
-export function BuildingModel({ activeIncidents, evacuationRoute }) {
+export function BuildingModel({ activeIncidents = [], evacuationRoute = [] }) {
   // Build a Set of "active keys" derived from incident location data.
   // Keys match the pattern used in FloorSlab isActive checks: "<wing>-<floor>-<zone>".
   const activeKeys = useMemo(() => {

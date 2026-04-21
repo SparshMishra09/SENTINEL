@@ -220,7 +220,7 @@ export default function Home() {
           <p style={{ color: "var(--text-muted)", fontSize: "0.8rem", marginBottom: "1rem" }}>
             Mark zones as cleared and play multilingual announcements
           </p>
-          <ZoneClearButton staffId={user?.uid || "demo-staff"} zone="4-EastWing" />
+          <ZoneClearButton staffId={user?.uid || "demo-staff"} zone="MT-4-EastHall" />
         </div>
       </div>
 
@@ -231,6 +231,7 @@ export default function Home() {
       <div style={{ marginTop: "1.5rem", textAlign: "center", color: "var(--text-muted)", fontSize: "0.75rem" }}>
         Logged in as <strong>{user?.email}</strong> · Google Solution Challenge 2026 · Deadline: April 28, 2026
       </div>
+      <DialogflowWidget />
     </div>
   );
 }
